@@ -1,1 +1,24 @@
-{}
+{
+    "seller" : [
+        {
+        "name" : "Anil",
+        "email" : "Anil@gmail.com",
+        "password" : "abc@123"
+    },
+       {
+        "name" : "Suresh",
+        "email" : "Suresh@gmail.com",
+        "password" : "Suresh@123"
+    },
+       {
+        "name" : "Rahul",
+        "email" : "Rahul@gmail.com",
+        "password" : "def@123"
+    },
+       {
+        "name" : "Sunil",
+        "email" : "Sunil@gmail.com",
+        "password" : "xyz@123"
+    }
+    ]
+}
