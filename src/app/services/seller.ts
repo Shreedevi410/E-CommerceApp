@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class Seller {
   constructor(private httpClient: HttpClient) {}
 
-  userSignUp(data: object) {
-    return this.httpClient.post('lo', data);
+  userSignUp(data: any) {
+    return this.httpClient.post('http://localhost:3000/seller', data);
   }
 }
