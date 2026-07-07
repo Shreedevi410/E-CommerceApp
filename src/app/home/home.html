@@ -1,20 +1,44 @@
 <div class="home-page">
   <div class="hero-panel">
-    <h1>{{ title }}</h1>
-    <p>{{ subtitle }}</p>
-    <button type="button" class="hero-button" (click)="onHomeClick()">Explore Home</button>
+    <div>
+      <h1>{{ title }}</h1>
+      <p>{{ subtitle }}</p>
+    </div>
+    <button type="button" class="hero-button" (click)="onHomeClick()">Start Shopping</button>
   </div>
 
-  <div class="action-cards">
-    <div class="card" (click)="onCardClick()" tabindex="0" role="button" (keydown.enter)="onCardClick()">
-      <h2>Featured Category</h2>
-      <p>Discover curated deals and today’s best picks.</p>
+  <div class="shop-highlights">
+    <div class="highlight-card">
+      <strong>Free delivery</strong>
+      <p>on orders over $50</p>
     </div>
-    <div class="card" (click)="onCardClick()" tabindex="0" role="button" (keydown.enter)="onCardClick()">
-      <h2>Quick Start</h2>
-      <p>Start browsing now and see what’s new.</p>
+    <div class="highlight-card">
+      <strong>Easy returns</strong>
+      <p>30-day money back guarantee</p>
+    </div>
+    <div class="highlight-card">
+      <strong>24/7 support</strong>
+      <p>chat with our team anytime</p>
     </div>
   </div>
+
+  <section class="product-grid">
+    <h2>Featured Products</h2>
+    <div class="products">
+      <article class="product-card" *ngFor="let product of products">
+        <div class="product-badge" *ngIf="product.badge">{{ product.badge }}</div>
+        <div class="product-image"></div>
+        <div class="product-body">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description }}</p>
+        </div>
+        <div class="product-footer">
+          <span class="price">{{ product.price }}</span>
+          <button type="button" class="add-button" (click)="onAddToCart(product.name)">Add to Cart</button>
+        </div>
+      </article>
+    </div>
+  </section>
 
   <div class="result-panel" *ngIf="clickMessage">
     <p>{{ clickMessage }}</p>
