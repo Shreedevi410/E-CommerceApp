@@ -1,1 +1,22 @@
-<h1>Home Component</h1>
+<div class="home-page">
+  <div class="hero-panel">
+    <h1>{{ title }}</h1>
+    <p>{{ subtitle }}</p>
+    <button type="button" class="hero-button" (click)="onHomeClick()">Explore Home</button>
+  </div>
+
+  <div class="action-cards">
+    <div class="card" (click)="onCardClick()" tabindex="0" role="button" (keydown.enter)="onCardClick()">
+      <h2>Featured Category</h2>
+      <p>Discover curated deals and today’s best picks.</p>
+    </div>
+    <div class="card" (click)="onCardClick()" tabindex="0" role="button" (keydown.enter)="onCardClick()">
+      <h2>Quick Start</h2>
+      <p>Start browsing now and see what’s new.</p>
+    </div>
+  </div>
+
+  <div class="result-panel" *ngIf="clickMessage">
+    <p>{{ clickMessage }}</p>
+  </div>
+</div>
