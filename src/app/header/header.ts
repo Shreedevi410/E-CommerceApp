@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../services/cart.service';
 
@@ -11,5 +11,5 @@ import { CartService } from '../services/cart.service';
 })
 export class Header {
   private readonly cartService = inject(CartService);
-  readonly cartCount = computed(() => this.cartService.cartCount());
+  readonly cartCount = this.cartService.cartCount;
 }

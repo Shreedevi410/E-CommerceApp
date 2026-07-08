@@ -62,14 +62,14 @@ export class Home {
   }
 
   get cartCount() {
-    return this.cartService.cartCount();
+    return this.cartService.cartCount;
   }
 
   get cartItems() {
-    return this.cartService.cartItems();
+    return this.cartService.cartItems;
   }
 
   get cartTotal() {
-    return this.cartService.cartTotal();
+    return this.cartService.cartTotal;
   }
 }
