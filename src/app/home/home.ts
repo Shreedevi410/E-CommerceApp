@@ -56,7 +56,20 @@ export class Home {
     this.clickMessage = `Added ${product.name} to your cart.`;
   }
 
+  onRemoveFromCart(productName: string): void {
+    this.cartService.removeItem(productName);
+    this.clickMessage = `Removed one ${productName} from your cart.`;
+  }
+
   get cartCount() {
     return this.cartService.cartCount();
+  }
+
+  get cartItems() {
+    return this.cartService.cartItems();
+  }
+
+  get cartTotal() {
+    return this.cartService.cartTotal();
   }
 }

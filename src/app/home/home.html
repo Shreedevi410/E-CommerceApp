@@ -40,6 +40,22 @@
     </div>
   </section>
 
+  <section class="cart-section" *ngIf="cartItems.length > 0">
+    <div class="cart-header">
+      <h2>Shopping Cart ({{ cartCount }})</h2>
+      <span class="cart-total">Total: ${{ cartTotal.toFixed(2) }}</span>
+    </div>
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <div>
+          <div class="item-name">{{ item.name }}</div>
+          <div class="item-meta">Qty: {{ item.quantity }} · ${{ item.price }} each</div>
+        </div>
+        <button type="button" class="remove-button" (click)="onRemoveFromCart(item.name)">Remove</button>
+      </div>
+    </div>
+  </section>
+
   <div class="result-panel" *ngIf="clickMessage">
     <p>{{ clickMessage }}</p>
   </div>

@@ -30,6 +30,22 @@ export class CartService {
     this.items.update((list) => [...list, { name, price, quantity: 1 }]);
   }
 
+  removeItem(name: string): void {
+    const existing = this.items().find((item) => item.name === name);
+    if (!existing) {
+      return;
+    }
+
+    if (existing.quantity > 1) {
+      this.items.update((list) => list.map((item) =>
+        item.name === name ? { ...item, quantity: item.quantity - 1 } : item
+      ));
+      return;
+    }
+
+    this.items.update((list) => list.filter((item) => item.name !== name));
+  }
+
   clearCart(): void {
     this.items.set([]);
   }
