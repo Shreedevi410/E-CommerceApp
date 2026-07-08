@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../services/cart.service';
 
 @Component({
   standalone: true,
@@ -16,35 +17,46 @@ export class Home {
   products = [
     {
       name: 'Wireless Headphones',
-      price: '$79',
+      price: 79,
+      displayPrice: '$79',
       description: 'Noise canceling with 20h battery life.',
       badge: 'Best Seller'
     },
     {
       name: 'Smart Watch',
-      price: '$129',
+      price: 129,
+      displayPrice: '$129',
       description: 'Fitness tracking and call notifications.',
       badge: 'New'
     },
     {
       name: 'Travel Backpack',
-      price: '$49',
+      price: 49,
+      displayPrice: '$49',
       description: 'Lightweight with multiple compartments.',
       badge: 'Top Rated'
     },
     {
       name: 'Bluetooth Speaker',
-      price: '$39',
+      price: 39,
+      displayPrice: '$39',
       description: 'Portable sound with rich bass.',
       badge: 'Limited Offer'
     }
   ];
 
+  constructor(private readonly cartService: CartService) {}
+
   onHomeClick(): void {
     this.clickMessage = 'Great! You clicked the home button. Enjoy exploring the shop.';
   }
 
-  onAddToCart(productName: string): void {
-    this.clickMessage = `Added ${productName} to your cart.`;
+  onAddToCart(product: { name: string; price: number }): void {
+    this.cartService.addItem(product.name, product.price);
+    this.clickMessage = `Added ${product.name} to your cart.`;
+  }
+
+  get cartCount() {
+    return this.cartService.cartCount();
   }
 }
