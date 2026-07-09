@@ -45,6 +45,10 @@ export class Home {
     }
   ];
 
+  readonly cartCount = this.cartService.cartCount;
+  readonly cartItems = this.cartService.cartItems;
+  readonly cartTotal = this.cartService.cartTotal;
+
   constructor(private readonly cartService: CartService) {}
 
   onHomeClick(): void {
@@ -59,17 +63,5 @@ export class Home {
   onRemoveFromCart(productName: string): void {
     this.cartService.removeItem(productName);
     this.clickMessage = `Removed one ${productName} from your cart.`;
-  }
-
-  get cartCount() {
-    return this.cartService.cartCount;
-  }
-
-  get cartItems() {
-    return this.cartService.cartItems;
-  }
-
-  get cartTotal() {
-    return this.cartService.cartTotal;
   }
 }
