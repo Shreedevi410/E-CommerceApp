@@ -46,7 +46,7 @@
       <span class="cart-total">Total: ${{ cartTotal().toFixed(2) }}</span>
     </div>
     <div class="cart-items">
-      <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="cart-item" *ngFor="let item of cartItems()">
         <div>
           <div class="item-name">{{ item.name }}</div>
           <div class="item-meta">Qty: {{ item.quantity }} · ${{ item.price }} each</div>

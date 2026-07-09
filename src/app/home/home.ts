@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
 
@@ -45,11 +45,10 @@ export class Home {
     }
   ];
 
+  private readonly cartService = inject(CartService);
   readonly cartCount = this.cartService.cartCount;
   readonly cartItems = this.cartService.cartItems;
   readonly cartTotal = this.cartService.cartTotal;
-
-  constructor(private readonly cartService: CartService) {}
 
   onHomeClick(): void {
     this.clickMessage = 'Great! You clicked the home button. Enjoy exploring the shop.';
